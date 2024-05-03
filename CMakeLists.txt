@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.1)
+cmake_minimum_required (VERSION 3.5)
 project(Snappy_Params_Search VERSION 1.0.0 LANGUAGES C CXX)
 
 # C++ standard can be overridden when this is used as a sub-project.
@@ -63,7 +63,7 @@ endif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 file(GLOB SOURCES "src/*.cpp")
 
 # Specify include directory
-include_directories("include" ".dependencies")
+include_directories("include" ".dependencies/snappy")
 
 # This project is dependent on google snappy
 add_subdirectory(".dependencies/snappy")

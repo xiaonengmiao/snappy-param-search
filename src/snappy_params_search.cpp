@@ -74,6 +74,7 @@ static inline int search_level(const std::string &compressed, const std::string 
     {
         snappy::CompressionOptions level{i_level};
         std::string recompressed;
+        recompressed.clear();
         recompressed.resize(snappy::MaxCompressedLength(uncompressed.size()));
         size_t destlen;
         snappy::RawCompress(uncompressed.data(), uncompressed.size(),
@@ -124,7 +125,7 @@ int main(int argc, char **argv) try
     if (level > 0)
     {
         write_file(std::string(filename).append(".uncomp"), uncompressed);
-        std::cout << "Compression Level is " << level << std::endl;
+        std::cout << "Compression Level is " << level << "." << std::endl;
     } else {
         std::cout << "Can not find the compression level" << std::endl;
     }

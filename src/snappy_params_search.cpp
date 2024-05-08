@@ -16,7 +16,7 @@ inline char* string_as_array(std::string* str)
 static inline int read_file(const std::string &file_name, std::string *output)
 {
     std::FILE *fp = std::fopen(file_name.c_str(), "rb");
-    if (fp = nullptr)
+    if (fp == nullptr)
     {
         std::perror(file_name.c_str());
         std::exit(1);
@@ -84,8 +84,7 @@ static inline int search_level(const std::string &compressed, const std::string 
             throw std::runtime_error("");
         }
         recompressed.resize(destlen);
-        if (!compressed.compare(recompressed)) break;
-        return i_level;
+        if (compressed == recompressed) return i_level;
     }
 
     return 0;
@@ -124,6 +123,7 @@ int main(int argc, char **argv) try
     assert(level >= 0 && level <= n_level);
     if (level > 0)
     {
+        write_file(std::string(filename).append(".uncomp"), uncompressed);
         std::cout << "Compression Level is " << level << std::endl;
     } else {
         std::cout << "Can not find the compression level" << std::endl;

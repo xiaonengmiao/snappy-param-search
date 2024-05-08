@@ -39,3 +39,6 @@ build/
 
 # MACOS
 .DS_Store
+
+# Data
+testdata/

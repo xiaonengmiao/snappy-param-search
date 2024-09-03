@@ -127,7 +127,7 @@ int main(int argc, char **argv) try
         write_file(std::string(filename).append(".uncomp"), uncompressed);
         std::cout << "Compression Level is " << level << "." << std::endl;
     } else {
-        std::cout << "Can not find the compression level" << std::endl;
+        std::cout << "Can not find the compression level " << level << std::endl;
     }
     
     return 0;
